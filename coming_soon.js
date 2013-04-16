@@ -1,9 +1,5 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to gkreader.";
-  };
-
-  Template.hello.events({
+  Template.coming_soon.events({
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
