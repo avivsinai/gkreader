@@ -1,44 +1,33 @@
 if (Meteor.isClient) {
-  Template.coming_soon.events({
-    'click #subscribeBtn': function (event, template) {
-      var emailElem = $(".email");
 
-      if (!isSubscriberValid(emailElem)) {
+  Template.coming_soon.events({
+    'submit': function (event, template) {
+      event.preventDefault();
+
+      if (!isSubscriberValid()) {
         console.log("Error in validation");
-        emailElem.addClass("error");
         return;
       }
 
-      if (emailElem.hasClass("error")) {
-        console.log("emailElem with error");
-        return; // Do nothing...
-      } 
-
-      console.log("EmailElem without error");
-      Meteor.call("addSubscriber", emailElem.val(), function (error, subscriber) {
+      Meteor.call("addSubscriber", template.find(".email").value, function (error, subscriber) {
         if (error) {
           console.log("error is " + error.details + ", " + error.reason);
-          emailElem.addClass("error");
         }
       });
   }});
 
-  function isSubscriberValid(emailElem) {
-    return $("subscribeForm").validate(
-    {
-      rules: {
-        email: {
-          email: true,
-          required: true
+  function isSubscriberValid() {
+    return parsley = $("#subscribeForm").parsley({
+        successClass: "success",
+        errorClass: "error",
+        errors: {
+          classHandler: function (element) {
+            return $(".email");
+          },
+          errorsWrapper: "",
+          errorElem: ""
         }
-      },
-      highlight: function(element) {
-        $(element).removeClass("success").addClass("error");
-      },
-      success: function(element) {
-        element.text("ok");
-      }
-     }).form();
+    }).validate();
   }
 }
 
