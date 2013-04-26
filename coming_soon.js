@@ -1,13 +1,15 @@
 if (Meteor.isClient) {
 
+  Meteor.startup(function () {
+    // Validation
+    $("input").not("[type=submit]").jqBootstrapValidation();
+
+  });
+
   Template.coming_soon.events({
     'submit': function (event, template) {
+      // We're a single page webapp...
       event.preventDefault();
-
-      if (!isSubscriberValid()) {
-        console.log("Error in validation");
-        return;
-      }
 
       Meteor.call("addSubscriber", template.find(".email").value, function (error, subscriber) {
         if (error) {
@@ -15,21 +17,8 @@ if (Meteor.isClient) {
         }
       });
   }});
-
-  function isSubscriberValid() {
-    return parsley = $("#subscribeForm").parsley({
-        successClass: "success",
-        errorClass: "error",
-        errors: {
-          classHandler: function (element) {
-            return $(".email");
-          },
-          errorsWrapper: "",
-          errorElem: ""
-        }
-    }).validate();
-  }
 }
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
