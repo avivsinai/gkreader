@@ -1,6 +1,6 @@
 // Model definitions would reside here
 Subscribers = new Meteor.Collection("subscribers");
-// { _id: subscriber_id, email: String, validation_date: Date}
+// { _id: subscriber_id, email: String, validation_date: Date, sent_email_date: Date}
 
 // Model server methods available in the client
 Meteor.methods({

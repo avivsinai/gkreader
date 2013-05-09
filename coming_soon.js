@@ -1,9 +1,12 @@
+/*if (typeof GKR == "undefined") {
+  GKR = {};
+}*/
+
 if (Meteor.isClient) {
 
   Meteor.startup(function () {
     // Validation
     $("input").not("[type=submit]").jqBootstrapValidation();
-
   });
 
   Template.coming_soon.events({
@@ -11,11 +14,13 @@ if (Meteor.isClient) {
       // We're a single page webapp...
       event.preventDefault();
 
-      Meteor.call("addSubscriber", template.find(".email").value, function (error, subscriber) {
-        if (error) {
-          console.log("error is " + error.details + ", " + error.reason);
-        }
-      });
+      var subscriberEmail = template.find(".email");
+      
+      return Subscribers.insert({ 
+          email: subscriberEmail, 
+          is_valid: false, 
+          validation_date: null,
+          sent_email_date: null});
   }});
 }
 

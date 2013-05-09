@@ -1,0 +1,3 @@
+var gk-alert = function() {
+	
+}
