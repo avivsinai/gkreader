@@ -1,21 +1,12 @@
 // Model definitions would reside here
 Subscribers = new Meteor.Collection("subscribers");
-// { _id: subscriber_id, email: String, validation_date: Date, sent_email_date: Date}
+// { _id: subscriber_id, email: String, subscribe_date: Date}
 
-// Model server methods available in the client
-Meteor.methods({
-	addSubscriber: function(subscriberEmail) {
-		console.log("SubEmail is " + subscriberEmail);
+// This will throw errors on client, but I want to keep as the API should be roughly the same when released
+Subscribers._ensureIndex({ "email": 1 }, { unique: true, sparse: true });
 
-		if (!subscriberEmail) {
-			throw new Meteor.Error(400, "Please provide a valid email address");
-		}
-
-		
-
-		return Subscribers.insert({ 
-					email: subscriberEmail, 
-					is_valid: false, 
-					validation_date: null});
-	}
+Subscribers.allow({
+	"insert": function (userId, doc) {
+		return true;
+	},
 });

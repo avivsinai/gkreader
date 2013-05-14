@@ -13,9 +13,6 @@
 
 	<!-- METAs go here -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Validation -->
-	<script src="BootstrapValidation.js"></script>
 </head>
 
 <body>
@@ -32,9 +29,11 @@
 		</h2>
 		<form id="subscribeForm" class="form-inline">
 			<div id="signup" class="form-inline input-prepend input-append">
-				<span class="add-on"><i class="icon-envelope"></i></span>
-				<input name="email" class="email input-xlarge" id="email" placeholder="Your email address" autofocus="autofocus" type="email" required>
-				<button id="subscribeBtn" class="btn btn-primary" type="submit" name="subscribe">Subscribe</button>
+				<div class="control-group">
+					<span class="add-on"><i class="icon-envelope"></i></span>
+					<input name="email" class="email input-xlarge" id="email" placeholder="Your email address" autofocus="autofocus" type="email" required>
+					<button id="subscribeBtn" class="btn btn-primary" type="submit" name="subscribe">Subscribe</button>
+				</div>
 			</div>
 		<form>
 	</div>

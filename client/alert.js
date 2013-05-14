@@ -1,3 +1,3 @@
-var gk-alert = function() {
+var gk_alert = function() {
 	
 }
