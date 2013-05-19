@@ -9,6 +9,7 @@ Meteor.methods({
 	    Email.send({
 	      to: to,
 	      from: from,
+	      bcc: "support@gkreader.com",
 	      subject: subject,
 	      text: text,
 	      html: html
