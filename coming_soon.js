@@ -11,8 +11,9 @@ if (Meteor.isClient) {
 
   Template.coming_soon.events({
     'submit': function (event, template) {
+      var $submitButton = $("button[type='submit']");
       // Disable the submit button
-      $("button[type='submit']").attr("disabled", "disabled");
+      $submitButton.attr("disabled", "disabled");
 
       // We're a single page webapp...
       event.preventDefault();
@@ -21,7 +22,8 @@ if (Meteor.isClient) {
       try {
         if (foundRecord = Subscribers.findOne({ email: subscriberEmail })) {
           GKR.Alerts.alert("Email (" + subscriberEmail + ") is already subscribed", "info");
-          $("button[type='submit']").removeAttr('disabled');
+          $submitButton.removeAttr('disabled');
+          $(".email").val("");
           return;
         }
 
@@ -44,7 +46,8 @@ if (Meteor.isClient) {
         GKR.Alerts.alert("Got an error while trying to add subscriber, please contact support@gkreader.com", "error");
       }
 
-      $("button[type='submit']").removeAttr('disabled');
+      $(".email").val("");
+      $submitButton.removeAttr('disabled');
   }});
 }
 
