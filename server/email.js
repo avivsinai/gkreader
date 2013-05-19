@@ -4,7 +4,7 @@ Meteor.methods({
 	    // without waiting for the email sending to complete.
 	    this.unblock();
 
-	    console.log("Sending email with parameters: " + to + "||" + from + "||" + subject + "||" + text + "||" + html);
+	    // console.log("Sending email with parameters: " + to + "||" + from + "||" + subject + "||" + text + "||" + html);
 
 	    Email.send({
 	      to: to,

@@ -1,2 +1,4 @@
 deploy.sh
 .DS_Store
+logs.sh
+logs.txt
