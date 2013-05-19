@@ -11,6 +11,8 @@ if (Meteor.isClient) {
 
   Template.coming_soon.events({
     'submit': function (event, template) {
+      GKR.Alerts.alert("THanks! We'll be sure to let you know when the Beta is ready...", "success");
+
       // Disable the submit button
       $("button[type='submit']").attr("disabled", "disabled");
 
