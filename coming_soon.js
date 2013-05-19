@@ -11,8 +11,6 @@ if (Meteor.isClient) {
 
   Template.coming_soon.events({
     'submit': function (event, template) {
-      GKR.Alerts.alert("THanks! We'll be sure to let you know when the Beta is ready...", "success");
-
       // Disable the submit button
       $("button[type='submit']").attr("disabled", "disabled");
 
@@ -22,7 +20,7 @@ if (Meteor.isClient) {
       var subscriberEmail = $(".email").val();
       try {
         if (foundRecord = Subscribers.findOne({ email: subscriberEmail })) {
-          console.log("Already subscribed " + foundRecord);
+          GKR.Alerts.alert("Email (" + subscriberEmail + ") is already subscribed", "info");
           $("button[type='submit']").removeAttr('disabled');
           return;
         }
@@ -36,13 +34,14 @@ if (Meteor.isClient) {
         
         // Email
         Meteor.call("sendEmail", subscriberEmail, "support@gkreader.com", "GKReader - Thanks for taking an interest", "We'll be sure to let you know when we're ready, stay tuned...", Template.coming_soon_email());
-        console.log("Email send to " + subscriberEmail);
+        GKR.Alerts.alert("Thanks! We'll be sure to let you know when the Beta is ready to (" + subscriberEmail + ")", "success");
       } catch (e) {
         console.log("Got exception while trying to save subscriber", e);
         
         var div = $(".email").parent("div.control-group");
         div.removeClass("success");
-        div.addClass("error");  
+        div.addClass("error");
+        GKR.Alerts.alert("Got an error while trying to add subscriber, please contact support@gkreader.com", "error");
       }
 
       $("button[type='submit']").removeAttr('disabled');
