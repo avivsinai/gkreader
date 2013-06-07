@@ -6,7 +6,7 @@ Meteor.methods({
 
 	    // console.log("Sending email with parameters: " + to + "||" + from + "||" + subject + "||" + text + "||" + html);
 
-	    Email.send({
+	    var emailRet = Email.send({
 	      to: to,
 	      from: from,
 	      bcc: "support@gkreader.com",

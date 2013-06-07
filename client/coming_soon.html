@@ -32,21 +32,27 @@
 
 <template name="coming_soon">
 <div class="container">
-	<div id="box" class="span7 offset2">
-		<h1>
-			{{> logo}} is coming soon...
-		<h2>
-			Yet another Google Reader alternative, modeled after Google Reader itself
-		</h2>
-		<form id="subscribeForm" class="form-inline">
-			<div id="signup" class="form-inline input-prepend input-append">
-				<div class="control-group">
-					<span class="add-on"><i class="icon-envelope"></i></span>
-					<input name="email" class="email input-xlarge" id="email" placeholder="Your email address" autofocus="autofocus" type="email" required>
-					<button id="subscribeBtn" class="btn btn-primary" type="submit" name="subscribe">Subscribe</button>
+	<div class="row-fluid">
+		<div class="span8">
+			<div class="spacer200"></div>
+		</div>
+		<div id="box" class="span8 offset2">
+			<h1>
+				{{> logo}} is coming soon...
+			</h1>
+			<h2>
+				Yet another Google Reader alternative, modeled after Google Reader itself
+			</h2>
+			<form id="subscribeForm" class="form-inline">
+				<div id="signup" class="form-inline input-prepend input-append">
+					<div class="control-group">
+						<span class="add-on"><i class="icon-envelope"></i></span>
+						<input name="email" class="email input-xlarge" id="email" placeholder="Your email address" autofocus="autofocus" type="email" required>
+						<button id="subscribeBtn" class="btn btn-primary" type="submit" name="subscribe">Subscribe</button>
+					</div>
 				</div>
-			</div>
-		<form>
+			<form>
+		</div>
 	</div>
 </div><!--end container-->
 </template>
