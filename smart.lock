@@ -2,13 +2,19 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "observatory": {}
+      "observatory": {},
+      "bootstrap-3": {}
     },
     "packages": {
       "observatory": {
         "git": "https://github.com/jhoxray/observatory.git",
         "tag": "v0.3.21",
         "commit": "3d6b436af0a70b784d0f9ec4709907c77bd4fd63"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.6",
+        "commit": "711dbcabe333c8714298b2fd1de97fdcdae6efa7"
       },
       "observatory-apollo": {
         "git": "https://github.com/superstringsoftware/observatory-apollo.git",

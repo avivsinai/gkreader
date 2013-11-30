@@ -9,7 +9,6 @@ accounts-base
 accounts-facebook
 accounts-google
 accounts-twitter
-bootstrap
 coffeescript
 jquery
 less
@@ -20,3 +19,4 @@ email
 standard-app-packages
 observatory
 observatory-apollo
+bootstrap-3
