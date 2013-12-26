@@ -1,5 +1,5 @@
 <template name="item">
-	<div class="item">
+	<article class="item">
 		<h2>
 			<a href="{{link}}">
 				{{title}}
@@ -10,21 +10,5 @@
 			<img alt="{{title}}" src="{{image.link}}"</img>
 		{{/if}}
 		{{desription}}
-	</div>
-</template>
-
-<!--TODO: How to inherit and only change the class of the main container-->
-<template name="first-item">
-	<div class="first-item">
-		<h2>
-			<a href="{{link}}">
-				{{title}}
-			</a>
-		</h2>
-		<h4 class="basic-info">{{feed.name}} by {{author}} | {{pubDate}}</h4>
-		{{#if image}}
-			<img alt="{{title}}" src="{{image.link}}"</img>
-		{{/if}}
-		{{desription}}
-	</div>
+	</article>
 </template>

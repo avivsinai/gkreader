@@ -1,0 +1,13 @@
+.item {
+  .make-row();
+  .basic-info {
+    color: #B3B3B2;
+    font-size: 12px;
+  }
+  img {
+    display: block;
+    margin-top: 33px;
+    margin-bottom: 33px;
+  }
+  margin-bottom: 33px;
+}
