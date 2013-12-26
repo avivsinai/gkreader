@@ -1,6 +1,8 @@
 {
   "packages": {
     "observatory": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "font-awesome": {},
+    "bootstrap3-less": {}
   }
 }
